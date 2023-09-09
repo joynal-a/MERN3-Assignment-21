@@ -1,17 +1,12 @@
-const {Schema, model} = require('mongoose');
+const mongoose = require('mongoose');
 
-const salesSchema = new Schema({
+const salesSchema = new mongoose.Schema({
     product: String,
     quantity: Number,
     price: Number,
-    date: {
-    type: Date,
-    default: new Date().toISOString(),
-}},
-{versionKey : false})
+    date: Date
+}, {versionKey: false});
 
-const Sales = model('Sales', salesSchema)
+const Sales = mongoose.model('Sales', salesSchema);
 
-module.exports = {
-    Sales
-}
+module.exports = Sales;
